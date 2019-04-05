@@ -93,7 +93,7 @@ CREATE TABLE `logs` (
   `authorized` varchar(1) NOT NULL,
   `response_code` smallint(3) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,6 +102,7 @@ CREATE TABLE `logs` (
 
 LOCK TABLES `logs` WRITE;
 /*!40000 ALTER TABLE `logs` DISABLE KEYS */;
+INSERT INTO `logs` VALUES (1,'','v1/users','get','a:6:{s:4:\"user\";s:7:\"student\";s:6:\"Accept\";s:3:\"*/*\";s:10:\"User-Agent\";s:14:\"insomnia/6.3.2\";s:4:\"Host\";s:14:\"api.simpkl.dio\";s:14:\"Content-Length\";s:0:\"\";s:12:\"Content-Type\";s:0:\"\";}','192.168.10.1',1554427791,1554430000,'0',403),(2,'4kscs444gok004kswwk0g4kkgs8kososcw8sc8gc','v1/users','get','a:7:{s:4:\"user\";s:7:\"student\";s:6:\"Accept\";s:3:\"*/*\";s:9:\"X-Api-Key\";s:40:\"4kscs444gok004kswwk0g4kkgs8kososcw8sc8gc\";s:10:\"User-Agent\";s:14:\"insomnia/6.3.2\";s:4:\"Host\";s:14:\"api.simpkl.dio\";s:14:\"Content-Length\";s:0:\"\";s:12:\"Content-Type\";s:0:\"\";}','192.168.10.1',1554427814,1554430000,'1',0),(3,'4kscs444gok004kswwk0g4kkgs8kososcw8sc8gc','v1/users','get','a:7:{s:4:\"user\";s:7:\"student\";s:6:\"Accept\";s:3:\"*/*\";s:9:\"X-Api-Key\";s:40:\"4kscs444gok004kswwk0g4kkgs8kososcw8sc8gc\";s:10:\"User-Agent\";s:14:\"insomnia/6.3.2\";s:4:\"Host\";s:14:\"api.simpkl.dio\";s:14:\"Content-Length\";s:0:\"\";s:12:\"Content-Type\";s:0:\"\";}','192.168.10.1',1554428568,1554430000,'1',0),(4,'4kscs444gok004kswwk0g4kkgs8kososcw8sc8gc','v1/users','get','a:15:{s:4:\"user\";s:7:\"student\";s:6:\"status\";s:6:\"magang\";s:15:\"Accept-Language\";s:14:\"en-US,en;q=0.9\";s:15:\"Accept-Encoding\";s:13:\"gzip, deflate\";s:7:\"Referer\";s:40:\"http://localhost:3000/student/approvepkl\";s:9:\"X-Api-Key\";s:40:\"4kscs444gok004kswwk0g4kkgs8kososcw8sc8gc\";s:10:\"User-Agent\";s:104:\"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36\";s:6:\"Origin\";s:21:\"http://localhost:3000\";s:6:\"Accept\";s:33:\"application/json, text/plain, */*\";s:13:\"Cache-Control\";s:8:\"no-cache\";s:6:\"Pragma\";s:8:\"no-cache\";s:10:\"Connection\";s:10:\"keep-alive\";s:4:\"Host\";s:14:\"api.simpkl.dio\";s:14:\"Content-Length\";s:0:\"\";s:12:\"Content-Type\";s:0:\"\";}','192.168.10.1',1554428614,1554430000,'1',0);
 /*!40000 ALTER TABLE `logs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,6 +149,29 @@ CREATE TABLE `tahun_akademik` (
 LOCK TABLES `tahun_akademik` WRITE;
 /*!40000 ALTER TABLE `tahun_akademik` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tahun_akademik` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_akun`
+--
+
+DROP TABLE IF EXISTS `tb_akun`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tb_akun` (
+  `username` varchar(100) NOT NULL,
+  `password` varchar(35) DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_akun`
+--
+
+LOCK TABLES `tb_akun` WRITE;
+/*!40000 ALTER TABLE `tb_akun` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tb_akun` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -713,7 +737,9 @@ CREATE TABLE `tb_level` (
   `nama_level` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_level`),
   KEY `fk_mempunyai_master_level` (`id_master_level`),
-  CONSTRAINT `fk_mempunyai_master_level` FOREIGN KEY (`id_master_level`) REFERENCES `tb_master_level` (`id_master_level`)
+  KEY `level_akun_fk` (`username`),
+  CONSTRAINT `fk_mempunyai_master_level` FOREIGN KEY (`id_master_level`) REFERENCES `tb_master_level` (`id_master_level`),
+  CONSTRAINT `level_akun_fk` FOREIGN KEY (`username`) REFERENCES `tb_akun` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -750,8 +776,10 @@ CREATE TABLE `tb_mahasiswa` (
   PRIMARY KEY (`nim`),
   KEY `fk_memiliki_mhs_ps` (`id_program_studi`),
   KEY `fk_mempunyai_mhs` (`id_tahun_akademik`),
+  KEY `mahasiswa_akun_fk` (`username`),
   CONSTRAINT `fk_memiliki_mhs_ps` FOREIGN KEY (`id_program_studi`) REFERENCES `tb_program_studi` (`id_program_studi`),
-  CONSTRAINT `fk_mempunyai_mhs` FOREIGN KEY (`id_tahun_akademik`) REFERENCES `tahun_akademik` (`id_tahun_akademik`)
+  CONSTRAINT `fk_mempunyai_mhs` FOREIGN KEY (`id_tahun_akademik`) REFERENCES `tahun_akademik` (`id_tahun_akademik`),
+  CONSTRAINT `mahasiswa_akun_fk` FOREIGN KEY (`username`) REFERENCES `tb_akun` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -761,6 +789,7 @@ CREATE TABLE `tb_mahasiswa` (
 
 LOCK TABLES `tb_mahasiswa` WRITE;
 /*!40000 ALTER TABLE `tb_mahasiswa` DISABLE KEYS */;
+INSERT INTO `tb_mahasiswa` VALUES ('MHS01',NULL,NULL,NULL,'Nani',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tb_mahasiswa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -997,8 +1026,10 @@ CREATE TABLE `tb_pegawai` (
   PRIMARY KEY (`nip_nik`),
   KEY `fk_memiliki_pangkat_golongan` (`id_pangkat_golongan`),
   KEY `fk_memiliki_status_pegawai` (`id_status_pkl`),
+  KEY `pegawai_akun_fk` (`username`),
   CONSTRAINT `fk_memiliki_pangkat_golongan` FOREIGN KEY (`id_pangkat_golongan`) REFERENCES `tb_pangkat_golongan` (`id_pangkat_golongan`),
-  CONSTRAINT `fk_memiliki_status_pegawai` FOREIGN KEY (`id_status_pkl`) REFERENCES `tb_status_pkl` (`id_status_pkl`)
+  CONSTRAINT `fk_memiliki_status_pegawai` FOREIGN KEY (`id_status_pkl`) REFERENCES `tb_status_pkl` (`id_status_pkl`),
+  CONSTRAINT `pegawai_akun_fk` FOREIGN KEY (`username`) REFERENCES `tb_akun` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1531,4 +1562,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-05  9:20:04
+-- Dump completed on 2019-04-05 10:20:27
