@@ -1,926 +1,926 @@
 /*==============================================================*/
-/* DBMS name:      MySQL 5.0                                    */
-/* Created on:     4/1/2019 7:19:46 AM                          */
+/* dbms name:      mysql 5.0                                    */
+/* created on:     4/1/2019 7:19:46 am                          */
 /*==============================================================*/
 
 
-drop table if exists TAHUN_AKADEMIK;
+drop table if exists tahun_akademik;
 
-drop table if exists TB_ARSIP_MHS;
+drop table if exists tb_arsip_mhs;
 
-drop table if exists TB_ARSIP_NILAI;
+drop table if exists tb_arsip_nilai;
 
-drop table if exists TB_BERKAS_DOSEN;
+drop table if exists tb_berkas_dosen;
 
-drop table if exists TB_BERKAS_MHS;
+drop table if exists tb_berkas_mhs;
 
-drop table if exists TB_BERKAS_PERUSAHAAN;
+drop table if exists tb_berkas_perusahaan;
 
-drop table if exists TB_BERKAS_PILIH_PERUSAHAAN;
+drop table if exists tb_berkas_pilih_perusahaan;
 
-drop table if exists TB_DATA_KUISIONER;
+drop table if exists tb_data_kuisioner;
 
-drop table if exists TB_DOSEN_BIMBINGAN_MHS;
+drop table if exists tb_dosen_bimbingan_mhs;
 
-drop table if exists TB_ISI_SURAT;
+drop table if exists tb_isi_surat;
 
-drop table if exists TB_JADWAL_SEMINAR;
+drop table if exists tb_jadwal_seminar;
 
-drop table if exists TB_JENIS_KUISIONER;
+drop table if exists tb_jenis_kuisioner;
 
-drop table if exists TB_JENIS_NILAI;
+drop table if exists tb_jenis_nilai;
 
-drop table if exists TB_JENIS_SURAT;
+drop table if exists tb_jenis_surat;
 
-drop table if exists TB_KABUPATEN_KOTA;
+drop table if exists tb_kabupaten_kota;
 
-drop table if exists TB_KECAMATAN;
+drop table if exists tb_kecamatan;
 
-drop table if exists TB_KELENGKAPAN;
+drop table if exists tb_kelengkapan;
 
-drop table if exists TB_KERJASAMA_PERUSAHAAN;
+drop table if exists tb_kerjasama_perusahaan;
 
-drop table if exists TB_KONSULTASI_BIMBINGAN;
+drop table if exists tb_konsultasi_bimbingan;
 
-drop table if exists TB_KOP_SURAT;
+drop table if exists tb_kop_surat;
 
-drop table if exists TB_LAYOUT_SURAT;
+drop table if exists tb_layout_surat;
 
-drop table if exists TB_LEVEL;
+drop table if exists tb_level;
 
-drop table if exists TB_MAHASISWA;
+drop table if exists tb_mahasiswa;
 
-drop table if exists TB_MASTER_LEVEL;
+drop table if exists tb_master_level;
 
-drop table if exists TB_MHS_PILIH_PERUSAHAAN;
+drop table if exists tb_mhs_pilih_perusahaan;
 
-drop table if exists TB_MONEV;
+drop table if exists tb_monev;
 
-drop table if exists TB_NEGARA;
+drop table if exists tb_negara;
 
-drop table if exists TB_NILAI_ISI_SURAT;
+drop table if exists tb_nilai_isi_surat;
 
-drop table if exists TB_NILAI_KOMPONEN;
+drop table if exists tb_nilai_komponen;
 
-drop table if exists TB_NILAI_SEMINAR;
+drop table if exists tb_nilai_seminar;
 
-drop table if exists TB_PANGKAT_GOLONGAN;
+drop table if exists tb_pangkat_golongan;
 
-drop table if exists TB_PEGAWAI;
+drop table if exists tb_pegawai;
 
-drop table if exists TB_PEMBIMBING_LAPANGAN;
+drop table if exists tb_pembimbing_lapangan;
 
-drop table if exists TB_PERUSAHAAN;
+drop table if exists tb_perusahaan;
 
-drop table if exists TB_PERUSAHAAN_SEMENTARA;
+drop table if exists tb_perusahaan_sementara;
 
-drop table if exists TB_PROGRAM_STUDI;
+drop table if exists tb_program_studi;
 
-drop table if exists TB_PROVINSI;
+drop table if exists tb_provinsi;
 
-drop table if exists TB_RUANG_SEMINAR;
+drop table if exists tb_ruang_seminar;
 
-drop table if exists TB_STATUS_PKL;
+drop table if exists tb_status_pkl;
 
-drop table if exists TB_TRANSAKSI_KUISIONER_MHS;
+drop table if exists tb_transaksi_kuisioner_mhs;
 
-drop table if exists TB_TRANSAKSI_KUISIONER_PEM_LAP;
+drop table if exists tb_transaksi_kuisioner_pem_lap;
 
-drop table if exists TB_TRANSAKSI_MONEV;
+drop table if exists tb_transaksi_monev;
 
-drop table if exists TB_TRANSAKSI_NILAI;
+drop table if exists tb_transaksi_nilai;
 
-drop table if exists TB_TRANSAKSI_SURAT_DOSEN;
+drop table if exists tb_transaksi_surat_dosen;
 
-drop table if exists TB_TRANSAKSI_SURAT_KELULUSAN;
+drop table if exists tb_transaksi_surat_kelulusan;
 
-drop table if exists TB_TRANSAKSI_SURAT_MHS;
+drop table if exists tb_transaksi_surat_mhs;
 
-drop table if exists TB_TTD_PIMPINAN;
+drop table if exists tb_ttd_pimpinan;
 
-drop table if exists TB_VALIDASI_NILAI;
+drop table if exists tb_validasi_nilai;
 
-drop table if exists TB_WAKTU_SEMINAR;
+drop table if exists tb_waktu_seminar;
 
 /*==============================================================*/
-/* Table: TAHUN_AKADEMIK                                        */
+/* table: tahun_akademik                                        */
 /*==============================================================*/
-create table TAHUN_AKADEMIK
+create table tahun_akademik
 (
-   ID_TAHUN_AKADEMIK    varchar(50) not null,
-   TAHUN_AKADEMIK       varchar(20),
-   primary key (ID_TAHUN_AKADEMIK)
+   id_tahun_akademik    varchar(50) not null,
+   tahun_akademik       varchar(20),
+   primary key (id_tahun_akademik)
 );
 
 /*==============================================================*/
-/* Table: TB_ARSIP_MHS                                          */
+/* table: tb_arsip_mhs                                          */
 /*==============================================================*/
-create table TB_ARSIP_MHS
+create table tb_arsip_mhs
 (
-   ID_ARSIP_MHS         varchar(50) not null,
-   ID_TAHUN_AKADEMIK    varchar(50),
-   NIM                  varchar(10),
-   STATUS_MHS           varchar(25),
-   KET_MHS              text,
-   primary key (ID_ARSIP_MHS)
+   id_arsip_mhs         varchar(50) not null,
+   id_tahun_akademik    varchar(50),
+   nim                  varchar(10),
+   status_mhs           varchar(25),
+   ket_mhs              text,
+   primary key (id_arsip_mhs)
 );
 
 /*==============================================================*/
-/* Table: TB_ARSIP_NILAI                                        */
+/* table: tb_arsip_nilai                                        */
 /*==============================================================*/
-create table TB_ARSIP_NILAI
+create table tb_arsip_nilai
 (
-   ID_ARSIP_NILAI       varchar(20) not null,
-   ID_TRANSAKSI_NILAI   varchar(20),
-   primary key (ID_ARSIP_NILAI)
+   id_arsip_nilai       varchar(20) not null,
+   id_transaksi_nilai   varchar(20),
+   primary key (id_arsip_nilai)
 );
 
 /*==============================================================*/
-/* Table: TB_BERKAS_DOSEN                                       */
+/* table: tb_berkas_dosen                                       */
 /*==============================================================*/
-create table TB_BERKAS_DOSEN
+create table tb_berkas_dosen
 (
-   ID_BERKAS_DOSEN      varchar(50) not null,
-   NIP_NIK              varchar(20),
-   NAMA_BERKAS_DOSEN    varchar(255),
-   EXTENSI_BERKAS_DOSEN varchar(10),
-   JENIS_BERKAS_DOSEN   varchar(30),
-   TANGGAL_UPLOAD_DOSEN timestamp,
-   primary key (ID_BERKAS_DOSEN)
+   id_berkas_dosen      varchar(50) not null,
+   nip_nik              varchar(20),
+   nama_berkas_dosen    varchar(255),
+   extensi_berkas_dosen varchar(10),
+   jenis_berkas_dosen   varchar(30),
+   tanggal_upload_dosen timestamp,
+   primary key (id_berkas_dosen)
 );
 
 /*==============================================================*/
-/* Table: TB_BERKAS_MHS                                         */
+/* table: tb_berkas_mhs                                         */
 /*==============================================================*/
-create table TB_BERKAS_MHS
+create table tb_berkas_mhs
 (
-   ID_BERKAS_MHS        int not null,
-   NIM                  varchar(10),
-   NAMA_BERKAS_MHS      varchar(255),
-   EXTENSI_BERKAS_MHS   varchar(10),
-   JENIS_BERKAS_MHS     varchar(30),
-   TANGGAL_UPLOAD_MHS   timestamp,
-   primary key (ID_BERKAS_MHS)
+   id_berkas_mhs        int not null,
+   nim                  varchar(10),
+   nama_berkas_mhs      varchar(255),
+   extensi_berkas_mhs   varchar(10),
+   jenis_berkas_mhs     varchar(30),
+   tanggal_upload_mhs   timestamp,
+   primary key (id_berkas_mhs)
 );
 
 /*==============================================================*/
-/* Table: TB_BERKAS_PERUSAHAAN                                  */
+/* table: tb_berkas_perusahaan                                  */
 /*==============================================================*/
-create table TB_BERKAS_PERUSAHAAN
+create table tb_berkas_perusahaan
 (
-   ID_BERKAS_PERUSAHAAN varchar(30) not null,
-   ID_PERUSAHAAN        varchar(50),
-   NAMA_BERKAS_PERUSAHAAN varchar(255),
-   EXTENSI_BERKAS_PERUSAHAAN varchar(10),
-   JENIS_BERKAS_PERUSAHAAN varchar(30),
-   TANGGAL_UPLOAD_PERUSAHAAN timestamp,
-   primary key (ID_BERKAS_PERUSAHAAN)
+   id_berkas_perusahaan varchar(30) not null,
+   id_perusahaan        varchar(50),
+   nama_berkas_perusahaan varchar(255),
+   extensi_berkas_perusahaan varchar(10),
+   jenis_berkas_perusahaan varchar(30),
+   tanggal_upload_perusahaan timestamp,
+   primary key (id_berkas_perusahaan)
 );
 
 /*==============================================================*/
-/* Table: TB_BERKAS_PILIH_PERUSAHAAN                            */
+/* table: tb_berkas_pilih_perusahaan                            */
 /*==============================================================*/
-create table TB_BERKAS_PILIH_PERUSAHAAN
+create table tb_berkas_pilih_perusahaan
 (
-   ID_BERKAS_PILIH_PERUSAHAAN varchar(30) not null,
-   ID_MAHASISWA_PERUSAHAAN varchar(30),
-   NAMA_BERKAS_PILIH_PERUSAHAAN varchar(255),
-   EXTENSI_BERKAS_PILIH_PERUSAHAAN varchar(10),
-   JENIS_BERKAS_PILIH_PERUSAHAAN varchar(30),
-   TANGGAL_UPLOAD_PILIH_PERUSAHAAN timestamp,
-   primary key (ID_BERKAS_PILIH_PERUSAHAAN)
+   id_berkas_pilih_perusahaan varchar(30) not null,
+   id_mahasiswa_perusahaan varchar(30),
+   nama_berkas_pilih_perusahaan varchar(255),
+   extensi_berkas_pilih_perusahaan varchar(10),
+   jenis_berkas_pilih_perusahaan varchar(30),
+   tanggal_upload_pilih_perusahaan timestamp,
+   primary key (id_berkas_pilih_perusahaan)
 );
 
 /*==============================================================*/
-/* Table: TB_DATA_KUISIONER                                     */
+/* table: tb_data_kuisioner                                     */
 /*==============================================================*/
-create table TB_DATA_KUISIONER
+create table tb_data_kuisioner
 (
-   ID_DATA_KUISIONER    varchar(20) not null,
-   ID_JENIS_KUISIONER   varchar(20),
-   SOAL_KUISIONER       text,
-   JAWABAN_KUISIONER    text,
-   primary key (ID_DATA_KUISIONER)
+   id_data_kuisioner    varchar(20) not null,
+   id_jenis_kuisioner   varchar(20),
+   soal_kuisioner       text,
+   jawaban_kuisioner    text,
+   primary key (id_data_kuisioner)
 );
 
 /*==============================================================*/
-/* Table: TB_DOSEN_BIMBINGAN_MHS                                */
+/* table: tb_dosen_bimbingan_mhs                                */
 /*==============================================================*/
-create table TB_DOSEN_BIMBINGAN_MHS
+create table tb_dosen_bimbingan_mhs
 (
-   ID_DOSEN_BIMBINGAN_MHS varchar(30) not null,
-   ID_TAHUN_AKADEMIK    varchar(50),
-   ID_MAHASISWA_PERUSAHAAN varchar(30),
-   NIM                  varchar(10),
-   NIP_NIK              varchar(20),
-   JUDUL_LAPORAN_MHS    varchar(100),
-   primary key (ID_DOSEN_BIMBINGAN_MHS)
+   id_dosen_bimbingan_mhs varchar(30) not null,
+   id_tahun_akademik    varchar(50),
+   id_mahasiswa_perusahaan varchar(30),
+   nim                  varchar(10),
+   nip_nik              varchar(20),
+   judul_laporan_mhs    varchar(100),
+   primary key (id_dosen_bimbingan_mhs)
 );
 
 /*==============================================================*/
-/* Table: TB_ISI_SURAT                                          */
+/* table: tb_isi_surat                                          */
 /*==============================================================*/
-create table TB_ISI_SURAT
+create table tb_isi_surat
 (
-   ID_ISI_SURAT         varchar(20) not null,
-   ID_JENIS_SURAT       varchar(20),
-   NAMA_ISI_SURAT       text,
-   primary key (ID_ISI_SURAT)
+   id_isi_surat         varchar(20) not null,
+   id_jenis_surat       varchar(20),
+   nama_isi_surat       text,
+   primary key (id_isi_surat)
 );
 
 /*==============================================================*/
-/* Table: TB_JADWAL_SEMINAR                                     */
+/* table: tb_jadwal_seminar                                     */
 /*==============================================================*/
-create table TB_JADWAL_SEMINAR
+create table tb_jadwal_seminar
 (
-   ID_JADWAL_SEMINAR    varchar(20) not null,
-   ID_RUANG_SEMINAR     varchar(20),
-   TANGGAL_SEMINAR      date,
-   PENGUJI_SEMINAR_1    varchar(200),
-   PENGUJI_SEMINAR_2    varchar(200),
-   primary key (ID_JADWAL_SEMINAR)
+   id_jadwal_seminar    varchar(20) not null,
+   id_ruang_seminar     varchar(20),
+   tanggal_seminar      date,
+   penguji_seminar_1    varchar(200),
+   penguji_seminar_2    varchar(200),
+   primary key (id_jadwal_seminar)
 );
 
 /*==============================================================*/
-/* Table: TB_JENIS_KUISIONER                                    */
+/* table: tb_jenis_kuisioner                                    */
 /*==============================================================*/
-create table TB_JENIS_KUISIONER
+create table tb_jenis_kuisioner
 (
-   ID_JENIS_KUISIONER   varchar(20) not null,
-   ID_STATUS_PKL        varchar(30),
-   JENIS_KUISIONER      varchar(100),
-   KEY_API_KUISIONER    text,
-   URL_KUISIONER        text,
-   primary key (ID_JENIS_KUISIONER)
+   id_jenis_kuisioner   varchar(20) not null,
+   id_status_pkl        varchar(30),
+   jenis_kuisioner      varchar(100),
+   key_api_kuisioner    text,
+   url_kuisioner        text,
+   primary key (id_jenis_kuisioner)
 );
 
 /*==============================================================*/
-/* Table: TB_JENIS_NILAI                                        */
+/* table: tb_jenis_nilai                                        */
 /*==============================================================*/
-create table TB_JENIS_NILAI
+create table tb_jenis_nilai
 (
-   ID_JENIS_NILAI       varchar(20) not null,
-   JENIS_NILAI          varchar(100),
-   primary key (ID_JENIS_NILAI)
+   id_jenis_nilai       varchar(20) not null,
+   jenis_nilai          varchar(100),
+   primary key (id_jenis_nilai)
 );
 
 /*==============================================================*/
-/* Table: TB_JENIS_SURAT                                        */
+/* table: tb_jenis_surat                                        */
 /*==============================================================*/
-create table TB_JENIS_SURAT
+create table tb_jenis_surat
 (
-   ID_JENIS_SURAT       varchar(20) not null,
-   ID_LAYOUT_SURAT      varchar(20),
-   NAMA_JENIS_SURAT     varchar(100),
-   primary key (ID_JENIS_SURAT)
+   id_jenis_surat       varchar(20) not null,
+   id_layout_surat      varchar(20),
+   nama_jenis_surat     varchar(100),
+   primary key (id_jenis_surat)
 );
 
 /*==============================================================*/
-/* Table: TB_KABUPATEN_KOTA                                     */
+/* table: tb_kabupaten_kota                                     */
 /*==============================================================*/
-create table TB_KABUPATEN_KOTA
+create table tb_kabupaten_kota
 (
-   ID_KAB_KOTA          varchar(30) not null,
-   ID_PROVINSI          varchar(30),
-   NAMA_KAB_KOTA        varchar(100),
-   primary key (ID_KAB_KOTA)
+   id_kab_kota          varchar(30) not null,
+   id_provinsi          varchar(30),
+   nama_kab_kota        varchar(100),
+   primary key (id_kab_kota)
 );
 
 /*==============================================================*/
-/* Table: TB_KECAMATAN                                          */
+/* table: tb_kecamatan                                          */
 /*==============================================================*/
-create table TB_KECAMATAN
+create table tb_kecamatan
 (
-   ID_KECAMATAN         varchar(30) not null,
-   ID_KAB_KOTA          varchar(30),
-   NAMA_KECAMATAN       varchar(100),
-   primary key (ID_KECAMATAN)
+   id_kecamatan         varchar(30) not null,
+   id_kab_kota          varchar(30),
+   nama_kecamatan       varchar(100),
+   primary key (id_kecamatan)
 );
 
 /*==============================================================*/
-/* Table: TB_KELENGKAPAN                                        */
+/* table: tb_kelengkapan                                        */
 /*==============================================================*/
-create table TB_KELENGKAPAN
+create table tb_kelengkapan
 (
-   ID_KELENGKAPAN       varchar(20) not null,
-   ID_BERKAS_MHS        int,
-   DRAFT                text,
-   URLSOURCECODE        text,
-   POSTER               text,
-   LEMBAR_PENGESAHAN    text,
-   primary key (ID_KELENGKAPAN)
+   id_kelengkapan       varchar(20) not null,
+   id_berkas_mhs        int,
+   draft                text,
+   urlsourcecode        text,
+   poster               text,
+   lembar_pengesahan    text,
+   primary key (id_kelengkapan)
 );
 
 /*==============================================================*/
-/* Table: TB_KERJASAMA_PERUSAHAAN                               */
+/* table: tb_kerjasama_perusahaan                               */
 /*==============================================================*/
-create table TB_KERJASAMA_PERUSAHAAN
+create table tb_kerjasama_perusahaan
 (
-   ID_KERJASAMA_PERUSAHAAN varchar(50) not null,
-   NAMA_KERJASAMA       varchar(100),
-   primary key (ID_KERJASAMA_PERUSAHAAN)
+   id_kerjasama_perusahaan varchar(50) not null,
+   nama_kerjasama       varchar(100),
+   primary key (id_kerjasama_perusahaan)
 );
 
 /*==============================================================*/
-/* Table: TB_KONSULTASI_BIMBINGAN                               */
+/* table: tb_konsultasi_bimbingan                               */
 /*==============================================================*/
-create table TB_KONSULTASI_BIMBINGAN
+create table tb_konsultasi_bimbingan
 (
-   ID_KONSULTASI_BIMBINGAN varchar(30) not null,
-   ID_DOSEN_BIMBINGAN_MHS varchar(30),
-   ID_STATUS_PKL        varchar(30),
-   TANGGAL_KONSULTASI_BIMBINGAN date,
-   MATERI_KONSULTASI_BIMBINGAN text,
-   TANGGAPAN_DOSEN      text,
-   primary key (ID_KONSULTASI_BIMBINGAN)
+   id_konsultasi_bimbingan varchar(30) not null,
+   id_dosen_bimbingan_mhs varchar(30),
+   id_status_pkl        varchar(30),
+   tanggal_konsultasi_bimbingan date,
+   materi_konsultasi_bimbingan text,
+   tanggapan_dosen      text,
+   primary key (id_konsultasi_bimbingan)
 );
 
 /*==============================================================*/
-/* Table: TB_KOP_SURAT                                          */
+/* table: tb_kop_surat                                          */
 /*==============================================================*/
-create table TB_KOP_SURAT
+create table tb_kop_surat
 (
-   ID_KOP_SURAT         varchar(30) not null,
-   NAMA_KOP_SURAT       varchar(100),
-   EXTENSI_KOP_SURAT    varchar(10),
-   TANGGAL_UPLOAD_KOP_SURAT timestamp,
-   primary key (ID_KOP_SURAT)
+   id_kop_surat         varchar(30) not null,
+   nama_kop_surat       varchar(100),
+   extensi_kop_surat    varchar(10),
+   tanggal_upload_kop_surat timestamp,
+   primary key (id_kop_surat)
 );
 
 /*==============================================================*/
-/* Table: TB_LAYOUT_SURAT                                       */
+/* table: tb_layout_surat                                       */
 /*==============================================================*/
-create table TB_LAYOUT_SURAT
+create table tb_layout_surat
 (
-   ID_LAYOUT_SURAT      varchar(20) not null,
-   JENIS_LAYOUT_SURAT   varchar(100),
-   primary key (ID_LAYOUT_SURAT)
+   id_layout_surat      varchar(20) not null,
+   jenis_layout_surat   varchar(100),
+   primary key (id_layout_surat)
 );
 
 /*==============================================================*/
-/* Table: TB_LEVEL                                              */
+/* table: tb_level                                              */
 /*==============================================================*/
-create table TB_LEVEL
+create table tb_level
 (
-   ID_LEVEL             int not null,
-   USERNAME             varchar(100),
-   ID_MASTER_LEVEL      varchar(20),
-   NAMA_LEVEL           varchar(100),
-   primary key (ID_LEVEL)
+   id_level             int not null,
+   username             varchar(100),
+   id_master_level      varchar(20),
+   nama_level           varchar(100),
+   primary key (id_level)
 );
 
 /*==============================================================*/
-/* Table: TB_MAHASISWA                                          */
+/* table: tb_mahasiswa                                          */
 /*==============================================================*/
-create table TB_MAHASISWA
+create table tb_mahasiswa
 (
-   NIM                  varchar(10) not null,
-   ID_TAHUN_AKADEMIK    varchar(50),
-   ID_PROGRAM_STUDI     varchar(50),
-   USERNAME             varchar(100),
-   NAMA_MAHASISWA       varchar(100),
-   ALAMAT_MHS           text,
-   JENIS_KELAMIN_MHS    varchar(15),
-   EMAIL_MHS            varchar(255),
-   TEMPAT_LAHIR_MHS     varchar(100),
-   TANGGAL_LAHIR_MHS    date,
-   NO_HP_MAHASISWA      varchar(50),
-   NAMA_ORANGTUA_MHS    varchar(100),
-   NO_HP_ORANGTUA_MHS   varchar(50),
-   primary key (NIM)
+   nim                  varchar(10) not null,
+   id_tahun_akademik    varchar(50),
+   id_program_studi     varchar(50),
+   username             varchar(100),
+   nama_mahasiswa       varchar(100),
+   alamat_mhs           text,
+   jenis_kelamin_mhs    varchar(15),
+   email_mhs            varchar(255),
+   tempat_lahir_mhs     varchar(100),
+   tanggal_lahir_mhs    date,
+   no_hp_mahasiswa      varchar(50),
+   nama_orangtua_mhs    varchar(100),
+   no_hp_orangtua_mhs   varchar(50),
+   primary key (nim)
 );
 
 /*==============================================================*/
-/* Table: TB_MASTER_LEVEL                                       */
+/* table: tb_master_level                                       */
 /*==============================================================*/
-create table TB_MASTER_LEVEL
+create table tb_master_level
 (
-   ID_MASTER_LEVEL      varchar(20) not null,
-   NAMA_MASTER_LEVEL    varchar(100),
-   primary key (ID_MASTER_LEVEL)
+   id_master_level      varchar(20) not null,
+   nama_master_level    varchar(100),
+   primary key (id_master_level)
 );
 
 /*==============================================================*/
-/* Table: TB_MHS_PILIH_PERUSAHAAN                               */
+/* table: tb_mhs_pilih_perusahaan                               */
 /*==============================================================*/
-create table TB_MHS_PILIH_PERUSAHAAN
+create table tb_mhs_pilih_perusahaan
 (
-   ID_MAHASISWA_PERUSAHAAN varchar(30) not null,
-   ID_TRANSAKSI_SURAT_MHS varchar(20),
-   ID_STATUS_PKL        varchar(30),
-   ID_PERUSAHAAN        varchar(50),
-   NIM                  varchar(10),
-   NO_BALASAN_SURAT     varchar(50),
-   TANGGAL_BALASAN_SURAT date,
-   primary key (ID_MAHASISWA_PERUSAHAAN)
+   id_mahasiswa_perusahaan varchar(30) not null,
+   id_transaksi_surat_mhs varchar(20),
+   id_status_pkl        varchar(30),
+   id_perusahaan        varchar(50),
+   nim                  varchar(10),
+   no_balasan_surat     varchar(50),
+   tanggal_balasan_surat date,
+   primary key (id_mahasiswa_perusahaan)
 );
 
 /*==============================================================*/
-/* Table: TB_MONEV                                              */
+/* table: tb_monev                                              */
 /*==============================================================*/
-create table TB_MONEV
+create table tb_monev
 (
-   ID_MONEV             varchar(30) not null,
-   ID_DOSEN_BIMBINGAN_MHS varchar(30),
-   NIP_NIK              varchar(20),
-   ID_MAHASISWA_PERUSAHAAN varchar(30),
-   primary key (ID_MONEV)
+   id_monev             varchar(30) not null,
+   id_dosen_bimbingan_mhs varchar(30),
+   nip_nik              varchar(20),
+   id_mahasiswa_perusahaan varchar(30),
+   primary key (id_monev)
 );
 
 /*==============================================================*/
-/* Table: TB_NEGARA                                             */
+/* table: tb_negara                                             */
 /*==============================================================*/
-create table TB_NEGARA
+create table tb_negara
 (
-   ID_NEGARA            varchar(30) not null,
-   NAMA_NEGARA          varchar(100),
-   primary key (ID_NEGARA)
+   id_negara            varchar(30) not null,
+   nama_negara          varchar(100),
+   primary key (id_negara)
 );
 
 /*==============================================================*/
-/* Table: TB_NILAI_ISI_SURAT                                    */
+/* table: tb_nilai_isi_surat                                    */
 /*==============================================================*/
-create table TB_NILAI_ISI_SURAT
+create table tb_nilai_isi_surat
 (
-   ID_NILAI_ISI_SURAT   varchar(20) not null,
-   ID_ISI_SURAT         varchar(20),
-   NILAI_ISI_SURAT      text,
-   primary key (ID_NILAI_ISI_SURAT)
+   id_nilai_isi_surat   varchar(20) not null,
+   id_isi_surat         varchar(20),
+   nilai_isi_surat      text,
+   primary key (id_nilai_isi_surat)
 );
 
 /*==============================================================*/
-/* Table: TB_NILAI_KOMPONEN                                     */
+/* table: tb_nilai_komponen                                     */
 /*==============================================================*/
-create table TB_NILAI_KOMPONEN
+create table tb_nilai_komponen
 (
-   ID_NILAI_KOMPONEN    varchar(20) not null,
-   KOMPONEN_NILAI       varchar(100),
-   BOBOT                varchar(20),
-   primary key (ID_NILAI_KOMPONEN)
+   id_nilai_komponen    varchar(20) not null,
+   komponen_nilai       varchar(100),
+   bobot                varchar(20),
+   primary key (id_nilai_komponen)
 );
 
 /*==============================================================*/
-/* Table: TB_NILAI_SEMINAR                                      */
+/* table: tb_nilai_seminar                                      */
 /*==============================================================*/
-create table TB_NILAI_SEMINAR
+create table tb_nilai_seminar
 (
-   ID_NILAI_SEMINAR     varchar(20) not null,
-   NILAI_SEMINAR        varchar(100),
-   primary key (ID_NILAI_SEMINAR)
+   id_nilai_seminar     varchar(20) not null,
+   nilai_seminar        varchar(100),
+   primary key (id_nilai_seminar)
 );
 
 /*==============================================================*/
-/* Table: TB_PANGKAT_GOLONGAN                                   */
+/* table: tb_pangkat_golongan                                   */
 /*==============================================================*/
-create table TB_PANGKAT_GOLONGAN
+create table tb_pangkat_golongan
 (
-   ID_PANGKAT_GOLONGAN  varchar(30) not null,
-   NAMA_GOLONGAN        varchar(100),
-   primary key (ID_PANGKAT_GOLONGAN)
+   id_pangkat_golongan  varchar(30) not null,
+   nama_golongan        varchar(100),
+   primary key (id_pangkat_golongan)
 );
 
 /*==============================================================*/
-/* Table: TB_PEGAWAI                                            */
+/* table: tb_pegawai                                            */
 /*==============================================================*/
-create table TB_PEGAWAI
+create table tb_pegawai
 (
-   NIP_NIK              varchar(20) not null,
-   USERNAME             varchar(100),
-   ID_STATUS_PKL        varchar(30),
-   ID_PANGKAT_GOLONGAN  varchar(30),
-   NAMA_PEGAWAI         varchar(100),
-   ALAMAT_PEGAWAI       text,
-   JK_PEGAWAI           varchar(20),
-   EMAIL_PEGAWAI        varchar(100),
-   TEMPAT_LAHIR_PEGAWAI varchar(100),
-   TANGGAL_LAHIR_PEGAWAI date,
-   NO_HP_PEGAWAI        varchar(50),
-   primary key (NIP_NIK)
+   nip_nik              varchar(20) not null,
+   username             varchar(100),
+   id_status_pkl        varchar(30),
+   id_pangkat_golongan  varchar(30),
+   nama_pegawai         varchar(100),
+   alamat_pegawai       text,
+   jk_pegawai           varchar(20),
+   email_pegawai        varchar(100),
+   tempat_lahir_pegawai varchar(100),
+   tanggal_lahir_pegawai date,
+   no_hp_pegawai        varchar(50),
+   primary key (nip_nik)
 );
 
 /*==============================================================*/
-/* Table: TB_PEMBIMBING_LAPANGAN                                */
+/* table: tb_pembimbing_lapangan                                */
 /*==============================================================*/
-create table TB_PEMBIMBING_LAPANGAN
+create table tb_pembimbing_lapangan
 (
-   ID_PEMBIMBING_LAPANGAN varchar(20) not null,
-   ID_STATUS_PKL        varchar(30),
-   ID_PERUSAHAAN        varchar(50),
-   NAMA_PEMBIMBING      varchar(100),
-   JABATAN_PEMBIMBING   varchar(50),
-   ALAMAT_PEMBIMBING    text,
-   TELEPON_PEMBIMBING   varchar(15),
-   HP_PEMBIMBING        varchar(15),
-   NAMA_HRD             varchar(100),
-   NO_HRD               varchar(20),
-   primary key (ID_PEMBIMBING_LAPANGAN)
+   id_pembimbing_lapangan varchar(20) not null,
+   id_status_pkl        varchar(30),
+   id_perusahaan        varchar(50),
+   nama_pembimbing      varchar(100),
+   jabatan_pembimbing   varchar(50),
+   alamat_pembimbing    text,
+   telepon_pembimbing   varchar(15),
+   hp_pembimbing        varchar(15),
+   nama_hrd             varchar(100),
+   no_hrd               varchar(20),
+   primary key (id_pembimbing_lapangan)
 );
 
 /*==============================================================*/
-/* Table: TB_PERUSAHAAN                                         */
+/* table: tb_perusahaan                                         */
 /*==============================================================*/
-create table TB_PERUSAHAAN
+create table tb_perusahaan
 (
-   ID_PERUSAHAAN        varchar(50) not null,
-   ID_NEGARA            varchar(30),
-   ID_PROVINSI          varchar(30),
-   ID_KERJASAMA_PERUSAHAAN varchar(50),
-   ID_KECAMATAN         varchar(30),
-   ID_KAB_KOTA          varchar(30),
-   ID_STATUS_PKL        varchar(30),
-   ID_PROGRAM_STUDI     varchar(50),
-   NAMA_PERUSAHAAN      varchar(100),
-   ALAMAT_PERUSAHAAN    text,
-   TELEPON_PERUSAHAAN   varchar(20),
-   LONG_PERUSAHAAN      varchar(10),
-   LAT_PERUSAHAAN       varchar(10),
-   KUOTA_PKL            int,
-   primary key (ID_PERUSAHAAN)
+   id_perusahaan        varchar(50) not null,
+   id_negara            varchar(30),
+   id_provinsi          varchar(30),
+   id_kerjasama_perusahaan varchar(50),
+   id_kecamatan         varchar(30),
+   id_kab_kota          varchar(30),
+   id_status_pkl        varchar(30),
+   id_program_studi     varchar(50),
+   nama_perusahaan      varchar(100),
+   alamat_perusahaan    text,
+   telepon_perusahaan   varchar(20),
+   long_perusahaan      varchar(10),
+   lat_perusahaan       varchar(10),
+   kuota_pkl            int,
+   primary key (id_perusahaan)
 );
 
 /*==============================================================*/
-/* Table: TB_PERUSAHAAN_SEMENTARA                               */
+/* table: tb_perusahaan_sementara                               */
 /*==============================================================*/
-create table TB_PERUSAHAAN_SEMENTARA
+create table tb_perusahaan_sementara
 (
-   ID_PERUSAHAAN_SEMENTARA varchar(30) not null,
-   NIM                  varchar(10),
-   ID_STATUS_PKL        varchar(30),
-   NAMA_PERUSAHAAN_SEMENTARA varchar(100),
-   ALAMAT_PERUSAHAAN_SEMENTARA text,
-   TELEPON_PERUSAHAAN_SEMENTARA varchar(20),
-   primary key (ID_PERUSAHAAN_SEMENTARA)
+   id_perusahaan_sementara varchar(30) not null,
+   nim                  varchar(10),
+   id_status_pkl        varchar(30),
+   nama_perusahaan_sementara varchar(100),
+   alamat_perusahaan_sementara text,
+   telepon_perusahaan_sementara varchar(20),
+   primary key (id_perusahaan_sementara)
 );
 
 /*==============================================================*/
-/* Table: TB_PROGRAM_STUDI                                      */
+/* table: tb_program_studi                                      */
 /*==============================================================*/
-create table TB_PROGRAM_STUDI
+create table tb_program_studi
 (
-   ID_PROGRAM_STUDI     varchar(50) not null,
-   NAMA_PROGRAM_STUDI   varchar(100),
-   primary key (ID_PROGRAM_STUDI)
+   id_program_studi     varchar(50) not null,
+   nama_program_studi   varchar(100),
+   primary key (id_program_studi)
 );
 
 /*==============================================================*/
-/* Table: TB_PROVINSI                                           */
+/* table: tb_provinsi                                           */
 /*==============================================================*/
-create table TB_PROVINSI
+create table tb_provinsi
 (
-   ID_PROVINSI          varchar(30) not null,
-   ID_NEGARA            varchar(30),
-   NAMA_PROVINSI        varchar(100),
-   primary key (ID_PROVINSI)
+   id_provinsi          varchar(30) not null,
+   id_negara            varchar(30),
+   nama_provinsi        varchar(100),
+   primary key (id_provinsi)
 );
 
 /*==============================================================*/
-/* Table: TB_RUANG_SEMINAR                                      */
+/* table: tb_ruang_seminar                                      */
 /*==============================================================*/
-create table TB_RUANG_SEMINAR
+create table tb_ruang_seminar
 (
-   ID_RUANG_SEMINAR     varchar(20) not null,
-   NAMA_RUANG_SEMINAR   varchar(100),
-   primary key (ID_RUANG_SEMINAR)
+   id_ruang_seminar     varchar(20) not null,
+   nama_ruang_seminar   varchar(100),
+   primary key (id_ruang_seminar)
 );
 
 /*==============================================================*/
-/* Table: TB_STATUS_PKL                                         */
+/* table: tb_status_pkl                                         */
 /*==============================================================*/
-create table TB_STATUS_PKL
+create table tb_status_pkl
 (
-   ID_STATUS_PKL        varchar(30) not null,
-   NAMA_STATUS_PKL      varchar(100),
-   KETERANGAN_STATUS_PKL varchar(100),
-   primary key (ID_STATUS_PKL)
+   id_status_pkl        varchar(30) not null,
+   nama_status_pkl      varchar(100),
+   keterangan_status_pkl varchar(100),
+   primary key (id_status_pkl)
 );
 
 /*==============================================================*/
-/* Table: TB_TRANSAKSI_KUISIONER_MHS                            */
+/* table: tb_transaksi_kuisioner_mhs                            */
 /*==============================================================*/
-create table TB_TRANSAKSI_KUISIONER_MHS
+create table tb_transaksi_kuisioner_mhs
 (
-   ID_TRANSAKSI_KUISIONER_MHS varchar(20) not null,
-   ID_MAHASISWA_PERUSAHAAN varchar(30),
-   ID_JENIS_KUISIONER   varchar(20),
-   primary key (ID_TRANSAKSI_KUISIONER_MHS)
+   id_transaksi_kuisioner_mhs varchar(20) not null,
+   id_mahasiswa_perusahaan varchar(30),
+   id_jenis_kuisioner   varchar(20),
+   primary key (id_transaksi_kuisioner_mhs)
 );
 
 /*==============================================================*/
-/* Table: TB_TRANSAKSI_KUISIONER_PEM_LAP                        */
+/* table: tb_transaksi_kuisioner_pem_lap                        */
 /*==============================================================*/
-create table TB_TRANSAKSI_KUISIONER_PEM_LAP
+create table tb_transaksi_kuisioner_pem_lap
 (
-   ID_TRANSAKSI_KUISIONER_PEM_LAP varchar(20) not null,
-   ID_MAHASISWA_PERUSAHAAN varchar(30),
-   ID_JENIS_KUISIONER   varchar(20),
-   primary key (ID_TRANSAKSI_KUISIONER_PEM_LAP)
+   id_transaksi_kuisioner_pem_lap varchar(20) not null,
+   id_mahasiswa_perusahaan varchar(30),
+   id_jenis_kuisioner   varchar(20),
+   primary key (id_transaksi_kuisioner_pem_lap)
 );
 
 /*==============================================================*/
-/* Table: TB_TRANSAKSI_MONEV                                    */
+/* table: tb_transaksi_monev                                    */
 /*==============================================================*/
-create table TB_TRANSAKSI_MONEV
+create table tb_transaksi_monev
 (
-   ID_TRANSAKSI_MONEV   varchar(30) not null,
-   ID_MONEV             varchar(30),
-   ID_JENIS_KUISIONER   varchar(20),
-   primary key (ID_TRANSAKSI_MONEV)
+   id_transaksi_monev   varchar(30) not null,
+   id_monev             varchar(30),
+   id_jenis_kuisioner   varchar(20),
+   primary key (id_transaksi_monev)
 );
 
 /*==============================================================*/
-/* Table: TB_TRANSAKSI_NILAI                                    */
+/* table: tb_transaksi_nilai                                    */
 /*==============================================================*/
-create table TB_TRANSAKSI_NILAI
+create table tb_transaksi_nilai
 (
-   ID_TRANSAKSI_NILAI   varchar(20) not null,
-   ID_NILAI_KOMPONEN    varchar(20),
-   ID_JENIS_NILAI       varchar(20),
-   ID_NILAI_SEMINAR     varchar(20),
-   NIILAI_AKHIR         float(10),
-   NILAI                float(10),
-   primary key (ID_TRANSAKSI_NILAI)
+   id_transaksi_nilai   varchar(20) not null,
+   id_nilai_komponen    varchar(20),
+   id_jenis_nilai       varchar(20),
+   id_nilai_seminar     varchar(20),
+   niilai_akhir         float(10),
+   nilai                float(10),
+   primary key (id_transaksi_nilai)
 );
 
 /*==============================================================*/
-/* Table: TB_TRANSAKSI_SURAT_DOSEN                              */
+/* table: tb_transaksi_surat_dosen                              */
 /*==============================================================*/
-create table TB_TRANSAKSI_SURAT_DOSEN
+create table tb_transaksi_surat_dosen
 (
-   ID_TRANSAKSI_SURAT_DOSEN varchar(20) not null,
-   ID_PROGRAM_STUDI     varchar(50),
-   NIP_NIK              varchar(20),
-   ID_JENIS_SURAT       varchar(20),
-   ID_MAHASISWA_PERUSAHAAN varchar(30),
-   ID_TTD_PIMPINAN      varchar(30),
-   ID_KOP_SURAT         varchar(30),
-   primary key (ID_TRANSAKSI_SURAT_DOSEN)
+   id_transaksi_surat_dosen varchar(20) not null,
+   id_program_studi     varchar(50),
+   nip_nik              varchar(20),
+   id_jenis_surat       varchar(20),
+   id_mahasiswa_perusahaan varchar(30),
+   id_ttd_pimpinan      varchar(30),
+   id_kop_surat         varchar(30),
+   primary key (id_transaksi_surat_dosen)
 );
 
 /*==============================================================*/
-/* Table: TB_TRANSAKSI_SURAT_KELULUSAN                          */
+/* table: tb_transaksi_surat_kelulusan                          */
 /*==============================================================*/
-create table TB_TRANSAKSI_SURAT_KELULUSAN
+create table tb_transaksi_surat_kelulusan
 (
-   ID_TRANSAKSI_SURAT_KELULUSAN varchar(20) not null,
-   ID_JENIS_SURAT       varchar(20),
-   primary key (ID_TRANSAKSI_SURAT_KELULUSAN)
+   id_transaksi_surat_kelulusan varchar(20) not null,
+   id_jenis_surat       varchar(20),
+   primary key (id_transaksi_surat_kelulusan)
 );
 
 /*==============================================================*/
-/* Table: TB_TRANSAKSI_SURAT_MHS                                */
+/* table: tb_transaksi_surat_mhs                                */
 /*==============================================================*/
-create table TB_TRANSAKSI_SURAT_MHS
+create table tb_transaksi_surat_mhs
 (
-   ID_TRANSAKSI_SURAT_MHS varchar(20) not null,
-   ID_TTD_PIMPINAN      varchar(30),
-   ID_PROGRAM_STUDI     varchar(50),
-   ID_MAHASISWA_PERUSAHAAN varchar(30),
-   ID_JENIS_SURAT       varchar(20),
-   ID_KOP_SURAT         varchar(30),
-   NIM                  varchar(10),
-   primary key (ID_TRANSAKSI_SURAT_MHS)
+   id_transaksi_surat_mhs varchar(20) not null,
+   id_ttd_pimpinan      varchar(30),
+   id_program_studi     varchar(50),
+   id_mahasiswa_perusahaan varchar(30),
+   id_jenis_surat       varchar(20),
+   id_kop_surat         varchar(30),
+   nim                  varchar(10),
+   primary key (id_transaksi_surat_mhs)
 );
 
 /*==============================================================*/
-/* Table: TB_TTD_PIMPINAN                                       */
+/* table: tb_ttd_pimpinan                                       */
 /*==============================================================*/
-create table TB_TTD_PIMPINAN
+create table tb_ttd_pimpinan
 (
-   ID_TTD_PIMPINAN      varchar(30) not null,
-   NIP_NIK_TTD_PIMPINAN varchar(50),
-   NAMA_TTD_PIMPINAN    varchar(100),
-   JABATAN_TDD_PIMPINAN varchar(100),
-   primary key (ID_TTD_PIMPINAN)
+   id_ttd_pimpinan      varchar(30) not null,
+   nip_nik_ttd_pimpinan varchar(50),
+   nama_ttd_pimpinan    varchar(100),
+   jabatan_tdd_pimpinan varchar(100),
+   primary key (id_ttd_pimpinan)
 );
 
 /*==============================================================*/
-/* Table: TB_VALIDASI_NILAI                                     */
+/* table: tb_validasi_nilai                                     */
 /*==============================================================*/
-create table TB_VALIDASI_NILAI
+create table tb_validasi_nilai
 (
-   ID_VALIDASI_NILAI    varchar(20) not null,
-   ID_TRANSAKSI_NILAI   varchar(20),
-   primary key (ID_VALIDASI_NILAI)
+   id_validasi_nilai    varchar(20) not null,
+   id_transaksi_nilai   varchar(20),
+   primary key (id_validasi_nilai)
 );
 
 /*==============================================================*/
-/* Table: TB_WAKTU_SEMINAR                                      */
+/* table: tb_waktu_seminar                                      */
 /*==============================================================*/
-create table TB_WAKTU_SEMINAR
+create table tb_waktu_seminar
 (
-   ID_WAKTU_SEMINAR     varchar(20) not null,
-   ID_RUANG_SEMINAR     varchar(20),
-   WAKTU_SEMINAR        varchar(100),
-   primary key (ID_WAKTU_SEMINAR)
+   id_waktu_seminar     varchar(20) not null,
+   id_ruang_seminar     varchar(20),
+   waktu_seminar        varchar(100),
+   primary key (id_waktu_seminar)
 );
 
-alter table TB_ARSIP_MHS add constraint FK_MEMILIKI_ARSIP_MHS foreign key (NIM)
-      references TB_MAHASISWA (NIM) on delete restrict on update restrict;
+alter table tb_arsip_mhs add constraint fk_memiliki_arsip_mhs foreign key (nim)
+      references tb_mahasiswa (nim) on delete restrict on update restrict;
 
-alter table TB_ARSIP_MHS add constraint FK_MEMILIKI_ARSIP_TAJARAN foreign key (ID_TAHUN_AKADEMIK)
-      references TAHUN_AKADEMIK (ID_TAHUN_AKADEMIK) on delete restrict on update restrict;
+alter table tb_arsip_mhs add constraint fk_memiliki_arsip_tajaran foreign key (id_tahun_akademik)
+      references tahun_akademik (id_tahun_akademik) on delete restrict on update restrict;
 
-alter table TB_ARSIP_NILAI add constraint FK_MEMILIKI_ARSIP_NILAI foreign key (ID_TRANSAKSI_NILAI)
-      references TB_TRANSAKSI_NILAI (ID_TRANSAKSI_NILAI) on delete restrict on update restrict;
+alter table tb_arsip_nilai add constraint fk_memiliki_arsip_nilai foreign key (id_transaksi_nilai)
+      references tb_transaksi_nilai (id_transaksi_nilai) on delete restrict on update restrict;
 
-alter table TB_BERKAS_DOSEN add constraint FK_MEMPUNYAI_BERKAS_DOSEN foreign key (NIP_NIK)
-      references TB_PEGAWAI (NIP_NIK) on delete restrict on update restrict;
+alter table tb_berkas_dosen add constraint fk_mempunyai_berkas_dosen foreign key (nip_nik)
+      references tb_pegawai (nip_nik) on delete restrict on update restrict;
 
-alter table TB_BERKAS_MHS add constraint FK_MEMPUNYAI_BERKAS_MHS foreign key (NIM)
-      references TB_MAHASISWA (NIM) on delete restrict on update restrict;
+alter table tb_berkas_mhs add constraint fk_mempunyai_berkas_mhs foreign key (nim)
+      references tb_mahasiswa (nim) on delete restrict on update restrict;
 
-alter table TB_BERKAS_PERUSAHAAN add constraint FK_MEMILIKI_BERKAS_PERUSAHAAN foreign key (ID_PERUSAHAAN)
-      references TB_PERUSAHAAN (ID_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_berkas_perusahaan add constraint fk_memiliki_berkas_perusahaan foreign key (id_perusahaan)
+      references tb_perusahaan (id_perusahaan) on delete restrict on update restrict;
 
-alter table TB_BERKAS_PILIH_PERUSAHAAN add constraint FK_MEMILIKI_BERKAS_PILIH_PERUSAHAAN foreign key (ID_MAHASISWA_PERUSAHAAN)
-      references TB_MHS_PILIH_PERUSAHAAN (ID_MAHASISWA_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_berkas_pilih_perusahaan add constraint fk_memiliki_berkas_pilih_perusahaan foreign key (id_mahasiswa_perusahaan)
+      references tb_mhs_pilih_perusahaan (id_mahasiswa_perusahaan) on delete restrict on update restrict;
 
-alter table TB_DATA_KUISIONER add constraint FK_MEMILIKI_JENIS_KUISIONER_KE_SOAL foreign key (ID_JENIS_KUISIONER)
-      references TB_JENIS_KUISIONER (ID_JENIS_KUISIONER) on delete restrict on update restrict;
+alter table tb_data_kuisioner add constraint fk_memiliki_jenis_kuisioner_ke_soal foreign key (id_jenis_kuisioner)
+      references tb_jenis_kuisioner (id_jenis_kuisioner) on delete restrict on update restrict;
 
-alter table TB_DOSEN_BIMBINGAN_MHS add constraint FK_MEMILIKI_DOSEN_BIMBINGAN_MHS foreign key (ID_TAHUN_AKADEMIK)
-      references TAHUN_AKADEMIK (ID_TAHUN_AKADEMIK) on delete restrict on update restrict;
+alter table tb_dosen_bimbingan_mhs add constraint fk_memiliki_dosen_bimbingan_mhs foreign key (id_tahun_akademik)
+      references tahun_akademik (id_tahun_akademik) on delete restrict on update restrict;
 
-alter table TB_DOSEN_BIMBINGAN_MHS add constraint FK_MEMILIKI_DOSEN_DOSEN_PEMBIMBING_MHS foreign key (NIP_NIK)
-      references TB_PEGAWAI (NIP_NIK) on delete restrict on update restrict;
+alter table tb_dosen_bimbingan_mhs add constraint fk_memiliki_dosen_dosen_pembimbing_mhs foreign key (nip_nik)
+      references tb_pegawai (nip_nik) on delete restrict on update restrict;
 
-alter table TB_DOSEN_BIMBINGAN_MHS add constraint FK_MEMILIKI_MHS_DOSEN_PEMBIMBING_MHS foreign key (NIM)
-      references TB_MAHASISWA (NIM) on delete restrict on update restrict;
+alter table tb_dosen_bimbingan_mhs add constraint fk_memiliki_mhs_dosen_pembimbing_mhs foreign key (nim)
+      references tb_mahasiswa (nim) on delete restrict on update restrict;
 
-alter table TB_DOSEN_BIMBINGAN_MHS add constraint FK_MEMILIKI_PILIH_PERUSAHAAN_DOSEN_PEMBIMBING foreign key (ID_MAHASISWA_PERUSAHAAN)
-      references TB_MHS_PILIH_PERUSAHAAN (ID_MAHASISWA_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_dosen_bimbingan_mhs add constraint fk_memiliki_pilih_perusahaan_dosen_pembimbing foreign key (id_mahasiswa_perusahaan)
+      references tb_mhs_pilih_perusahaan (id_mahasiswa_perusahaan) on delete restrict on update restrict;
 
-alter table TB_ISI_SURAT add constraint FK_MEMILIKI_ISI_SURAT foreign key (ID_JENIS_SURAT)
-      references TB_JENIS_SURAT (ID_JENIS_SURAT) on delete restrict on update restrict;
+alter table tb_isi_surat add constraint fk_memiliki_isi_surat foreign key (id_jenis_surat)
+      references tb_jenis_surat (id_jenis_surat) on delete restrict on update restrict;
 
-alter table TB_JADWAL_SEMINAR add constraint FK_MEMILIKI_JADWAL_SEMINAR foreign key (ID_RUANG_SEMINAR)
-      references TB_RUANG_SEMINAR (ID_RUANG_SEMINAR) on delete restrict on update restrict;
+alter table tb_jadwal_seminar add constraint fk_memiliki_jadwal_seminar foreign key (id_ruang_seminar)
+      references tb_ruang_seminar (id_ruang_seminar) on delete restrict on update restrict;
 
-alter table TB_JENIS_KUISIONER add constraint FK_MEMILIKI_STSTUS_PKL_JENIS_KUISIONER foreign key (ID_STATUS_PKL)
-      references TB_STATUS_PKL (ID_STATUS_PKL) on delete restrict on update restrict;
+alter table tb_jenis_kuisioner add constraint fk_memiliki_ststus_pkl_jenis_kuisioner foreign key (id_status_pkl)
+      references tb_status_pkl (id_status_pkl) on delete restrict on update restrict;
 
-alter table TB_JENIS_SURAT add constraint FK_MEMILIKI foreign key (ID_LAYOUT_SURAT)
-      references TB_LAYOUT_SURAT (ID_LAYOUT_SURAT) on delete restrict on update restrict;
+alter table tb_jenis_surat add constraint fk_memiliki foreign key (id_layout_surat)
+      references tb_layout_surat (id_layout_surat) on delete restrict on update restrict;
 
-alter table TB_KABUPATEN_KOTA add constraint FK_MEMILIKI_KABUPATEN_KOTA foreign key (ID_PROVINSI)
-      references TB_PROVINSI (ID_PROVINSI) on delete restrict on update restrict;
+alter table tb_kabupaten_kota add constraint fk_memiliki_kabupaten_kota foreign key (id_provinsi)
+      references tb_provinsi (id_provinsi) on delete restrict on update restrict;
 
-alter table TB_KECAMATAN add constraint FK_MEMILIKI_KECAMATAN foreign key (ID_KAB_KOTA)
-      references TB_KABUPATEN_KOTA (ID_KAB_KOTA) on delete restrict on update restrict;
+alter table tb_kecamatan add constraint fk_memiliki_kecamatan foreign key (id_kab_kota)
+      references tb_kabupaten_kota (id_kab_kota) on delete restrict on update restrict;
 
-alter table TB_KELENGKAPAN add constraint FK_MEMILIKI_BERKAS_MHS foreign key (ID_BERKAS_MHS)
-      references TB_BERKAS_MHS (ID_BERKAS_MHS) on delete restrict on update restrict;
+alter table tb_kelengkapan add constraint fk_memiliki_berkas_mhs foreign key (id_berkas_mhs)
+      references tb_berkas_mhs (id_berkas_mhs) on delete restrict on update restrict;
 
-alter table TB_KONSULTASI_BIMBINGAN add constraint FK_MEMILIKI_KONSULTASI_BIMBINGAN_DOSEN_MHS foreign key (ID_DOSEN_BIMBINGAN_MHS)
-      references TB_DOSEN_BIMBINGAN_MHS (ID_DOSEN_BIMBINGAN_MHS) on delete restrict on update restrict;
+alter table tb_konsultasi_bimbingan add constraint fk_memiliki_konsultasi_bimbingan_dosen_mhs foreign key (id_dosen_bimbingan_mhs)
+      references tb_dosen_bimbingan_mhs (id_dosen_bimbingan_mhs) on delete restrict on update restrict;
 
-alter table TB_KONSULTASI_BIMBINGAN add constraint FK_MEMILIKI_STATUS_KONSULTASI_BIMBINGAN foreign key (ID_STATUS_PKL)
-      references TB_STATUS_PKL (ID_STATUS_PKL) on delete restrict on update restrict;
+alter table tb_konsultasi_bimbingan add constraint fk_memiliki_status_konsultasi_bimbingan foreign key (id_status_pkl)
+      references tb_status_pkl (id_status_pkl) on delete restrict on update restrict;
 
-alter table TB_LEVEL add constraint FK_MEMPUNYAI_MASTER_LEVEL foreign key (ID_MASTER_LEVEL)
-      references TB_MASTER_LEVEL (ID_MASTER_LEVEL) on delete restrict on update restrict;
+alter table tb_level add constraint fk_mempunyai_master_level foreign key (id_master_level)
+      references tb_master_level (id_master_level) on delete restrict on update restrict;
 
-alter table TB_MAHASISWA add constraint FK_MEMILIKI_MHS_PS foreign key (ID_PROGRAM_STUDI)
-      references TB_PROGRAM_STUDI (ID_PROGRAM_STUDI) on delete restrict on update restrict;
+alter table tb_mahasiswa add constraint fk_memiliki_mhs_ps foreign key (id_program_studi)
+      references tb_program_studi (id_program_studi) on delete restrict on update restrict;
 
-alter table TB_MAHASISWA add constraint FK_MEMPUNYAI_MHS foreign key (ID_TAHUN_AKADEMIK)
-      references TAHUN_AKADEMIK (ID_TAHUN_AKADEMIK) on delete restrict on update restrict;
+alter table tb_mahasiswa add constraint fk_mempunyai_mhs foreign key (id_tahun_akademik)
+      references tahun_akademik (id_tahun_akademik) on delete restrict on update restrict;
 
-alter table TB_MHS_PILIH_PERUSAHAAN add constraint FK_MEMILIH_MHS_PERUSAHAAN foreign key (NIM)
-      references TB_MAHASISWA (NIM) on delete restrict on update restrict;
+alter table tb_mhs_pilih_perusahaan add constraint fk_memilih_mhs_perusahaan foreign key (nim)
+      references tb_mahasiswa (nim) on delete restrict on update restrict;
 
-alter table TB_MHS_PILIH_PERUSAHAAN add constraint FK_MEMILIKI_PERUSAHAAN_MHS foreign key (ID_PERUSAHAAN)
-      references TB_PERUSAHAAN (ID_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_mhs_pilih_perusahaan add constraint fk_memiliki_perusahaan_mhs foreign key (id_perusahaan)
+      references tb_perusahaan (id_perusahaan) on delete restrict on update restrict;
 
-alter table TB_MHS_PILIH_PERUSAHAAN add constraint FK_MEMILIKI_PILIHAN_PERUSAHAAN foreign key (ID_TRANSAKSI_SURAT_MHS)
-      references TB_TRANSAKSI_SURAT_MHS (ID_TRANSAKSI_SURAT_MHS) on delete restrict on update restrict;
+alter table tb_mhs_pilih_perusahaan add constraint fk_memiliki_pilihan_perusahaan foreign key (id_transaksi_surat_mhs)
+      references tb_transaksi_surat_mhs (id_transaksi_surat_mhs) on delete restrict on update restrict;
 
-alter table TB_MHS_PILIH_PERUSAHAAN add constraint FK_MEMILIKI_PILIH_STSTUS_PERUSAHAAN foreign key (ID_STATUS_PKL)
-      references TB_STATUS_PKL (ID_STATUS_PKL) on delete restrict on update restrict;
+alter table tb_mhs_pilih_perusahaan add constraint fk_memiliki_pilih_ststus_perusahaan foreign key (id_status_pkl)
+      references tb_status_pkl (id_status_pkl) on delete restrict on update restrict;
 
-alter table TB_MONEV add constraint FK_MEMILIKI_DOSEN_BIMBINGAN_MHS_MONEV foreign key (ID_DOSEN_BIMBINGAN_MHS)
-      references TB_DOSEN_BIMBINGAN_MHS (ID_DOSEN_BIMBINGAN_MHS) on delete restrict on update restrict;
+alter table tb_monev add constraint fk_memiliki_dosen_bimbingan_mhs_monev foreign key (id_dosen_bimbingan_mhs)
+      references tb_dosen_bimbingan_mhs (id_dosen_bimbingan_mhs) on delete restrict on update restrict;
 
-alter table TB_MONEV add constraint FK_MEMILIKI_DOSEN_MONEV foreign key (NIP_NIK)
-      references TB_PEGAWAI (NIP_NIK) on delete restrict on update restrict;
+alter table tb_monev add constraint fk_memiliki_dosen_monev foreign key (nip_nik)
+      references tb_pegawai (nip_nik) on delete restrict on update restrict;
 
-alter table TB_MONEV add constraint FK_MEMILIKI_MHS_PILIH_PERUSAHAAN foreign key (ID_MAHASISWA_PERUSAHAAN)
-      references TB_MHS_PILIH_PERUSAHAAN (ID_MAHASISWA_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_monev add constraint fk_memiliki_mhs_pilih_perusahaan foreign key (id_mahasiswa_perusahaan)
+      references tb_mhs_pilih_perusahaan (id_mahasiswa_perusahaan) on delete restrict on update restrict;
 
-alter table TB_NILAI_ISI_SURAT add constraint FK_MEMILIKI_NILAI_ISI_SURAT foreign key (ID_ISI_SURAT)
-      references TB_ISI_SURAT (ID_ISI_SURAT) on delete restrict on update restrict;
+alter table tb_nilai_isi_surat add constraint fk_memiliki_nilai_isi_surat foreign key (id_isi_surat)
+      references tb_isi_surat (id_isi_surat) on delete restrict on update restrict;
 
-alter table TB_PEGAWAI add constraint FK_MEMILIKI_PANGKAT_GOLONGAN foreign key (ID_PANGKAT_GOLONGAN)
-      references TB_PANGKAT_GOLONGAN (ID_PANGKAT_GOLONGAN) on delete restrict on update restrict;
+alter table tb_pegawai add constraint fk_memiliki_pangkat_golongan foreign key (id_pangkat_golongan)
+      references tb_pangkat_golongan (id_pangkat_golongan) on delete restrict on update restrict;
 
-alter table TB_PEGAWAI add constraint FK_MEMILIKI_STATUS_PEGAWAI foreign key (ID_STATUS_PKL)
-      references TB_STATUS_PKL (ID_STATUS_PKL) on delete restrict on update restrict;
+alter table tb_pegawai add constraint fk_memiliki_status_pegawai foreign key (id_status_pkl)
+      references tb_status_pkl (id_status_pkl) on delete restrict on update restrict;
 
-alter table TB_PEMBIMBING_LAPANGAN add constraint FK_MEMILIKI_PEMBIMBING foreign key (ID_PERUSAHAAN)
-      references TB_PERUSAHAAN (ID_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_pembimbing_lapangan add constraint fk_memiliki_pembimbing foreign key (id_perusahaan)
+      references tb_perusahaan (id_perusahaan) on delete restrict on update restrict;
 
-alter table TB_PEMBIMBING_LAPANGAN add constraint FK_MEMILIKI_PEMBIMBING_LAPANGAN_STATUS foreign key (ID_STATUS_PKL)
-      references TB_STATUS_PKL (ID_STATUS_PKL) on delete restrict on update restrict;
+alter table tb_pembimbing_lapangan add constraint fk_memiliki_pembimbing_lapangan_status foreign key (id_status_pkl)
+      references tb_status_pkl (id_status_pkl) on delete restrict on update restrict;
 
-alter table TB_PERUSAHAAN add constraint FK_MEMILIKI_KAB_KOTA foreign key (ID_KAB_KOTA)
-      references TB_KABUPATEN_KOTA (ID_KAB_KOTA) on delete restrict on update restrict;
+alter table tb_perusahaan add constraint fk_memiliki_kab_kota foreign key (id_kab_kota)
+      references tb_kabupaten_kota (id_kab_kota) on delete restrict on update restrict;
 
-alter table TB_PERUSAHAAN add constraint FK_MEMILIKI_KECAMATAN_KOTA foreign key (ID_KECAMATAN)
-      references TB_KECAMATAN (ID_KECAMATAN) on delete restrict on update restrict;
+alter table tb_perusahaan add constraint fk_memiliki_kecamatan_kota foreign key (id_kecamatan)
+      references tb_kecamatan (id_kecamatan) on delete restrict on update restrict;
 
-alter table TB_PERUSAHAAN add constraint FK_MEMILIKI_KERJASAMA_PERUSAHAAN foreign key (ID_KERJASAMA_PERUSAHAAN)
-      references TB_KERJASAMA_PERUSAHAAN (ID_KERJASAMA_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_perusahaan add constraint fk_memiliki_kerjasama_perusahaan foreign key (id_kerjasama_perusahaan)
+      references tb_kerjasama_perusahaan (id_kerjasama_perusahaan) on delete restrict on update restrict;
 
-alter table TB_PERUSAHAAN add constraint FK_MEMILIKI_NEGARA foreign key (ID_NEGARA)
-      references TB_NEGARA (ID_NEGARA) on delete restrict on update restrict;
+alter table tb_perusahaan add constraint fk_memiliki_negara foreign key (id_negara)
+      references tb_negara (id_negara) on delete restrict on update restrict;
 
-alter table TB_PERUSAHAAN add constraint FK_MEMILIKI_PROVINSI_NEGARA foreign key (ID_PROVINSI)
-      references TB_PROVINSI (ID_PROVINSI) on delete restrict on update restrict;
+alter table tb_perusahaan add constraint fk_memiliki_provinsi_negara foreign key (id_provinsi)
+      references tb_provinsi (id_provinsi) on delete restrict on update restrict;
 
-alter table TB_PERUSAHAAN add constraint FK_MEMILIKI_PS_PERUSAHAAN foreign key (ID_PROGRAM_STUDI)
-      references TB_PROGRAM_STUDI (ID_PROGRAM_STUDI) on delete restrict on update restrict;
+alter table tb_perusahaan add constraint fk_memiliki_ps_perusahaan foreign key (id_program_studi)
+      references tb_program_studi (id_program_studi) on delete restrict on update restrict;
 
-alter table TB_PERUSAHAAN add constraint FK_MEMILIKI_STATUS_PERUSAHAAN foreign key (ID_STATUS_PKL)
-      references TB_STATUS_PKL (ID_STATUS_PKL) on delete restrict on update restrict;
+alter table tb_perusahaan add constraint fk_memiliki_status_perusahaan foreign key (id_status_pkl)
+      references tb_status_pkl (id_status_pkl) on delete restrict on update restrict;
 
-alter table TB_PERUSAHAAN_SEMENTARA add constraint FK_MEMILIKI_PERUSAHAAN_SEMENTARA foreign key (NIM)
-      references TB_MAHASISWA (NIM) on delete restrict on update restrict;
+alter table tb_perusahaan_sementara add constraint fk_memiliki_perusahaan_sementara foreign key (nim)
+      references tb_mahasiswa (nim) on delete restrict on update restrict;
 
-alter table TB_PERUSAHAAN_SEMENTARA add constraint FK_MEMILIKI_STATUS_PERUSAHAAN_SEMENTARA foreign key (ID_STATUS_PKL)
-      references TB_STATUS_PKL (ID_STATUS_PKL) on delete restrict on update restrict;
+alter table tb_perusahaan_sementara add constraint fk_memiliki_status_perusahaan_sementara foreign key (id_status_pkl)
+      references tb_status_pkl (id_status_pkl) on delete restrict on update restrict;
 
-alter table TB_PROVINSI add constraint FK_MEMILIKI_PROVINSI foreign key (ID_NEGARA)
-      references TB_NEGARA (ID_NEGARA) on delete restrict on update restrict;
+alter table tb_provinsi add constraint fk_memiliki_provinsi foreign key (id_negara)
+      references tb_negara (id_negara) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_KUISIONER_MHS add constraint FK_MEMILIKI_PILIH_MHS_TRANSAKSI_KUISIONER_MHS foreign key (ID_MAHASISWA_PERUSAHAAN)
-      references TB_MHS_PILIH_PERUSAHAAN (ID_MAHASISWA_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_transaksi_kuisioner_mhs add constraint fk_memiliki_pilih_mhs_transaksi_kuisioner_mhs foreign key (id_mahasiswa_perusahaan)
+      references tb_mhs_pilih_perusahaan (id_mahasiswa_perusahaan) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_KUISIONER_MHS add constraint FK_MEMILIKI_TRANSAKSI_KUISIONER_MHS foreign key (ID_JENIS_KUISIONER)
-      references TB_JENIS_KUISIONER (ID_JENIS_KUISIONER) on delete restrict on update restrict;
+alter table tb_transaksi_kuisioner_mhs add constraint fk_memiliki_transaksi_kuisioner_mhs foreign key (id_jenis_kuisioner)
+      references tb_jenis_kuisioner (id_jenis_kuisioner) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_KUISIONER_PEM_LAP add constraint FK_MEMILIKI_JENIS_TRANSAKSI_KUISIONER_PEM_LAP foreign key (ID_JENIS_KUISIONER)
-      references TB_JENIS_KUISIONER (ID_JENIS_KUISIONER) on delete restrict on update restrict;
+alter table tb_transaksi_kuisioner_pem_lap add constraint fk_memiliki_jenis_transaksi_kuisioner_pem_lap foreign key (id_jenis_kuisioner)
+      references tb_jenis_kuisioner (id_jenis_kuisioner) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_KUISIONER_PEM_LAP add constraint FK_MEMILIKI_MHS_PILIH_TRANSAKSI_KUISIONER_PEM_LAP foreign key (ID_MAHASISWA_PERUSAHAAN)
-      references TB_MHS_PILIH_PERUSAHAAN (ID_MAHASISWA_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_transaksi_kuisioner_pem_lap add constraint fk_memiliki_mhs_pilih_transaksi_kuisioner_pem_lap foreign key (id_mahasiswa_perusahaan)
+      references tb_mhs_pilih_perusahaan (id_mahasiswa_perusahaan) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_MONEV add constraint FK_MEMILIKI_HASIL_MONEV foreign key (ID_MONEV)
-      references TB_MONEV (ID_MONEV) on delete restrict on update restrict;
+alter table tb_transaksi_monev add constraint fk_memiliki_hasil_monev foreign key (id_monev)
+      references tb_monev (id_monev) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_MONEV add constraint FK_MEMILIKI_JENIS_TRANSAKSI_KUISIONER foreign key (ID_JENIS_KUISIONER)
-      references TB_JENIS_KUISIONER (ID_JENIS_KUISIONER) on delete restrict on update restrict;
+alter table tb_transaksi_monev add constraint fk_memiliki_jenis_transaksi_kuisioner foreign key (id_jenis_kuisioner)
+      references tb_jenis_kuisioner (id_jenis_kuisioner) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_NILAI add constraint FK_MEMILIKI_JENIS_NILAI foreign key (ID_JENIS_NILAI)
-      references TB_JENIS_NILAI (ID_JENIS_NILAI) on delete restrict on update restrict;
+alter table tb_transaksi_nilai add constraint fk_memiliki_jenis_nilai foreign key (id_jenis_nilai)
+      references tb_jenis_nilai (id_jenis_nilai) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_NILAI add constraint FK_MEMILIKI_KOMPONEN_NILAI foreign key (ID_NILAI_KOMPONEN)
-      references TB_NILAI_KOMPONEN (ID_NILAI_KOMPONEN) on delete restrict on update restrict;
+alter table tb_transaksi_nilai add constraint fk_memiliki_komponen_nilai foreign key (id_nilai_komponen)
+      references tb_nilai_komponen (id_nilai_komponen) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_NILAI add constraint FK_MEMILIKI_NILAI_SEMINAR foreign key (ID_NILAI_SEMINAR)
-      references TB_NILAI_SEMINAR (ID_NILAI_SEMINAR) on delete restrict on update restrict;
+alter table tb_transaksi_nilai add constraint fk_memiliki_nilai_seminar foreign key (id_nilai_seminar)
+      references tb_nilai_seminar (id_nilai_seminar) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_DOSEN add constraint FK_MEMILIKI_JENIS_SURAT_DSN foreign key (ID_JENIS_SURAT)
-      references TB_JENIS_SURAT (ID_JENIS_SURAT) on delete restrict on update restrict;
+alter table tb_transaksi_surat_dosen add constraint fk_memiliki_jenis_surat_dsn foreign key (id_jenis_surat)
+      references tb_jenis_surat (id_jenis_surat) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_DOSEN add constraint FK_MEMILIKI_KOP_SURAT_DOSEN foreign key (ID_KOP_SURAT)
-      references TB_KOP_SURAT (ID_KOP_SURAT) on delete restrict on update restrict;
+alter table tb_transaksi_surat_dosen add constraint fk_memiliki_kop_surat_dosen foreign key (id_kop_surat)
+      references tb_kop_surat (id_kop_surat) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_DOSEN add constraint FK_MEMILIKI_PILIHAN_PERUSAHAAN_DSN foreign key (ID_MAHASISWA_PERUSAHAAN)
-      references TB_MHS_PILIH_PERUSAHAAN (ID_MAHASISWA_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_transaksi_surat_dosen add constraint fk_memiliki_pilihan_perusahaan_dsn foreign key (id_mahasiswa_perusahaan)
+      references tb_mhs_pilih_perusahaan (id_mahasiswa_perusahaan) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_DOSEN add constraint FK_MEMILIKI_TRANSAKSI_SURAT foreign key (NIP_NIK)
-      references TB_PEGAWAI (NIP_NIK) on delete restrict on update restrict;
+alter table tb_transaksi_surat_dosen add constraint fk_memiliki_transaksi_surat foreign key (nip_nik)
+      references tb_pegawai (nip_nik) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_DOSEN add constraint FK_MEMILIKI_TRANSAKSI_SURAT_DOSEN foreign key (ID_PROGRAM_STUDI)
-      references TB_PROGRAM_STUDI (ID_PROGRAM_STUDI) on delete restrict on update restrict;
+alter table tb_transaksi_surat_dosen add constraint fk_memiliki_transaksi_surat_dosen foreign key (id_program_studi)
+      references tb_program_studi (id_program_studi) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_DOSEN add constraint FK_MEMILIKI_TTD_PEMIMPIN foreign key (ID_TTD_PIMPINAN)
-      references TB_TTD_PIMPINAN (ID_TTD_PIMPINAN) on delete restrict on update restrict;
+alter table tb_transaksi_surat_dosen add constraint fk_memiliki_ttd_pemimpin foreign key (id_ttd_pimpinan)
+      references tb_ttd_pimpinan (id_ttd_pimpinan) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_KELULUSAN add constraint FK_MEMILIKI_JENIS_SURAT_LLS foreign key (ID_JENIS_SURAT)
-      references TB_JENIS_SURAT (ID_JENIS_SURAT) on delete restrict on update restrict;
+alter table tb_transaksi_surat_kelulusan add constraint fk_memiliki_jenis_surat_lls foreign key (id_jenis_surat)
+      references tb_jenis_surat (id_jenis_surat) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_MHS add constraint FK_MEMILIKI_JENIS_SURAT_MHS foreign key (ID_JENIS_SURAT)
-      references TB_JENIS_SURAT (ID_JENIS_SURAT) on delete restrict on update restrict;
+alter table tb_transaksi_surat_mhs add constraint fk_memiliki_jenis_surat_mhs foreign key (id_jenis_surat)
+      references tb_jenis_surat (id_jenis_surat) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_MHS add constraint FK_MEMILIKI_KOP_SURAT_MHS foreign key (ID_KOP_SURAT)
-      references TB_KOP_SURAT (ID_KOP_SURAT) on delete restrict on update restrict;
+alter table tb_transaksi_surat_mhs add constraint fk_memiliki_kop_surat_mhs foreign key (id_kop_surat)
+      references tb_kop_surat (id_kop_surat) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_MHS add constraint FK_MEMILIKI_PILIHAN_PERUSAHAAN2 foreign key (ID_MAHASISWA_PERUSAHAAN)
-      references TB_MHS_PILIH_PERUSAHAAN (ID_MAHASISWA_PERUSAHAAN) on delete restrict on update restrict;
+alter table tb_transaksi_surat_mhs add constraint fk_memiliki_pilihan_perusahaan2 foreign key (id_mahasiswa_perusahaan)
+      references tb_mhs_pilih_perusahaan (id_mahasiswa_perusahaan) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_MHS add constraint FK_MEMILIKI_PROGRAM_STUDI_MHS foreign key (ID_PROGRAM_STUDI)
-      references TB_PROGRAM_STUDI (ID_PROGRAM_STUDI) on delete restrict on update restrict;
+alter table tb_transaksi_surat_mhs add constraint fk_memiliki_program_studi_mhs foreign key (id_program_studi)
+      references tb_program_studi (id_program_studi) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_MHS add constraint FK_MEMILIKI_TRANSAKSI_SURAT_MHS foreign key (NIM)
-      references TB_MAHASISWA (NIM) on delete restrict on update restrict;
+alter table tb_transaksi_surat_mhs add constraint fk_memiliki_transaksi_surat_mhs foreign key (nim)
+      references tb_mahasiswa (nim) on delete restrict on update restrict;
 
-alter table TB_TRANSAKSI_SURAT_MHS add constraint FK_MEMILIKI_TTD_PIMPINAN_MHS foreign key (ID_TTD_PIMPINAN)
-      references TB_TTD_PIMPINAN (ID_TTD_PIMPINAN) on delete restrict on update restrict;
+alter table tb_transaksi_surat_mhs add constraint fk_memiliki_ttd_pimpinan_mhs foreign key (id_ttd_pimpinan)
+      references tb_ttd_pimpinan (id_ttd_pimpinan) on delete restrict on update restrict;
 
-alter table TB_VALIDASI_NILAI add constraint FK_MEMILIKI_VALIDASI_NILAI foreign key (ID_TRANSAKSI_NILAI)
-      references TB_TRANSAKSI_NILAI (ID_TRANSAKSI_NILAI) on delete restrict on update restrict;
+alter table tb_validasi_nilai add constraint fk_memiliki_validasi_nilai foreign key (id_transaksi_nilai)
+      references tb_transaksi_nilai (id_transaksi_nilai) on delete restrict on update restrict;
 
-alter table TB_WAKTU_SEMINAR add constraint FK_MEMILIKI_RUANG_WAKTU_SEMINAR foreign key (ID_RUANG_SEMINAR)
-      references TB_RUANG_SEMINAR (ID_RUANG_SEMINAR) on delete restrict on update restrict;
+alter table tb_waktu_seminar add constraint fk_memiliki_ruang_waktu_seminar foreign key (id_ruang_seminar)
+      references tb_ruang_seminar (id_ruang_seminar) on delete restrict on update restrict;
 
